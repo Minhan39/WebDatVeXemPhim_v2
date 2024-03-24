@@ -8,6 +8,7 @@ use App\Http\Controllers\PopcornAndSodaController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\ShowtimeController;
+use App\Http\Controllers\TicketPriceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,12 @@ Route::get('comboes', [PopcornAndSodaController::class, 'list']);
 Route::get('movies', [MovieController::class, 'list']);
 Route::get('movie/{id}', [MovieController::class, 'detail']);
 Route::get('cinemas', [CinemaController::class, 'list']);
-Route::get('showtimes/{id}', [ShowtimeController::class, 'list_order_by_date']);
+Route::get('showtimes/{movie_id}/{date}', [ShowtimeController::class, 'list_order_by_date']);
+Route::get('showtime/{showtime_id}', [ShowtimeController::class, 'detail']);
+Route::get('ticket-prices/{cinema_id}', [TicketPriceController::class, 'list']);
 Route::post('ticket', [TicketController::class, 'store']);
+Route::get('tickets/{user_id}', [TicketController::class, 'list']);
+Route::get('report', [TicketController::class, 'report']);
 
 Route::middleware('auth:sanctum')->get('/test', function (Request $request) {
     if($request->user()->tokenCan('write')){

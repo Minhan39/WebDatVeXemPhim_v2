@@ -68,6 +68,16 @@
                         </div>
 
                         <div class="mb-5">
+                            <label for="primary_color_background" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Primary color background:</label>
+                            <input type="text" name="primary_color_background" id="primary_color_background" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="primary_color_text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Primary color text:</label>
+                            <input type="text" name="primary_color_text" id="primary_color_text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+
+                        <div class="mb-5">
                             <label for="poster" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Poster:</label>
                             <input type="file" name="poster" id="poster" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" required>
                         </div>

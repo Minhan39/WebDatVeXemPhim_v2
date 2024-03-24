@@ -10,27 +10,43 @@ use DateTime;
 class ShowtimeController extends Controller
 {
     /**
+     * api showtime detail.
+     */
+    public function detail($showtime_id){
+        $showtime = DB::table('showtimes')
+            ->join('cinemas', 'showtimes.cinema_id', '=', 'cinemas.id')
+            ->join('movies', 'showtimes.movie_id', '=', 'movies.id')
+            ->where('showtimes.id', '=', $showtime_id)
+            ->select('movies.name as movie_name', 'showtimes.screening_date', 'showtimes.screening_time', 'cinemas.name as cinema_name', 'movies.poster as movie_poster', 'movies.duration')
+            ->first();
+        return response()->json($showtime);
+    }
+    /**
      * api screening list.
      */
-    public function list_order_by_date(string $date){
+    public function list_order_by_date(int $movie_id, string $date){
         $showtimes = DB::table('showtimes')
             ->join('cinemas', 'showtimes.cinema_id', '=', 'cinemas.id')
             ->join('movies', 'showtimes.movie_id', '=', 'movies.id')
-            ->where('showtimes.screening_date', $date)
-            ->select('showtimes.id as id', 'cinemas.name as cinema_name', 'movies.name as movie_name', 'showtimes.screening_date', 'showtimes.screening_time')
+            ->where('showtimes.screening_date', '=', $date)
+            ->where('showtimes.movie_id', '=', $movie_id)
+            ->select('showtimes.id as id', 'cinemas.id as cinema_id', 'cinemas.name as cinema_name', 'movies.name as movie_name', 'showtimes.screening_date', 'showtimes.screening_time')
             ->get();
         $result = [];
         foreach($showtimes as $showtime){
-            $cinema_id = $showtime->id;
+            $cinema_id = $showtime->cinema_id;
             if(!isset($result[$cinema_id])){
                 $result[$cinema_id] = [
-                    "id" => $showtime->id,
+                    "id" => $showtime->cinema_id,
                     "cinema_name" => $showtime->cinema_name,
                     "screening_date" => $showtime->screening_date,
                     "screening_times" => []
                 ];
             }
-            $result[$cinema_id]["screening_times"][] = $showtime->screening_time;
+            //this time now get 0, but we are in G7, 7 hours equal 7*3600 miliseconds
+            if(strtotime($showtime->screening_date . ' ' . $showtime->screening_time) >= microtime(true) + 7*3600){
+                $result[$cinema_id]["screening_times"][] = ['time' => $showtime->screening_time, 'showtime_id' => $showtime->id];
+            }
         }
         $result = array_values($result);
         return response()->json($result);

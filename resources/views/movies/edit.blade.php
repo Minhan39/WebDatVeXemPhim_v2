@@ -68,6 +68,16 @@
                             <input type="text" name="duration" id="duration" value="{{$movie->duration}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
 
+                        <div class="mb-5">
+                            <label for="primary_color_background" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Primary color background:</label>
+                            <input type="text" name="primary_color_background" value="{{$movie->primary_color_background}}" id="primary_color_background" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="primary_color_text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Primary color text:</label>
+                            <input type="text" name="primary_color_text" value="{{$movie->primary_color_text}}" id="primary_color_text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+
                         <!-- <div class="mb-5">
                             <label for="trailer" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Trailer:</label>
                             <input type="text" name="trailer" id="trailer" value="{{$movie->trailer}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

@@ -9,6 +9,25 @@ use Illuminate\Support\Facades\DB;
 class TicketPriceController extends Controller
 {
     /**
+     * api ticket price list.
+     */
+    public function list($cinema_id){
+        $ticketPrices = DB::table('ticket_prices')
+            ->join('units', 'ticket_prices.unit_id', '=', 'units.id')
+            ->where('cinema_id', '=', $cinema_id)
+            ->where('is_active', '=', 1)
+            ->select(
+                'ticket_prices.id as id', 
+                'ticket_prices.cinema_id as cinema_id', 
+                'ticket_prices.name as name', 
+                'ticket_prices.price as price', 
+                'units.symbol as unit_name'
+                )
+            ->get();
+        return response()->json($ticketPrices);
+
+    }
+    /**
      * Display a listing of the resource.
      */
     public function index()

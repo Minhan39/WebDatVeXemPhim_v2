@@ -18,6 +18,7 @@ class MovieController extends Controller
         $data = DB::table('movies')
             ->join('movie_rating_systems', 'movies.movie_rating_system_id', '=', 'movie_rating_systems.id')
             ->select(
+                'movies.movie_genre_ids as genre_ids',
                 'movies.id as movie_id',
                 'movies.name as movie_name',
                 'movies.poster as movie_poster', 
@@ -36,6 +37,9 @@ class MovieController extends Controller
                 'movie_rating_systems.name as rating_system_name')
             ->where('movies.id', $id)
             ->first();
+        $genre_ids = explode(",", $data->movie_genre_ids);
+        $genres = MovieGenre::all()->whereIn('id', $genre_ids)->pluck('name')->toArray();
+        $data->genres = $genres;
         return response()->json($data);
     }
     /**
@@ -83,7 +87,9 @@ class MovieController extends Controller
             'directors' => 'nullable',
             'actors' => 'nullable',
             'trailer' => 'required|mimes:mp3,mp4',
-            'duration' => 'nullable'
+            'duration' => 'nullable',
+            'primary_color_background' => 'nullable',
+            'primary_color_text' => 'nullable'
         ]);
 
         $movie = new Movie();
@@ -95,6 +101,8 @@ class MovieController extends Controller
         $movie->directors = $request->directors;
         $movie->actors = $request->actors;
         $movie->duration = $request->duration;
+        $movie->primary_color_background = $request->primary_color_background;
+        $movie->primary_color_text = $request->primary_color_text;
 
         $movie->poster = 'posters/' . $request->file('poster')->hashName();
         $movie->trailer = 'trailers/' . $request->file('trailer')->hashName();
@@ -146,7 +154,9 @@ class MovieController extends Controller
             'directors' => 'nullable',
             'actors' => 'nullable',
             'trailer' => 'nullable|mimes:mp3,mp4',
-            'duration' => 'nullable'
+            'duration' => 'nullable',
+            'primary_color_background' => 'nullable',
+            'primary_color_text' => 'nullable'
         ]);
 
         if ($request->hasFile('poster')) {
@@ -169,6 +179,8 @@ class MovieController extends Controller
         $movie->directors = $request->directors;
         $movie->actors = $request->actors;
         $movie->duration = $request->duration;
+        $movie->primary_color_background = $request->primary_color_background;
+        $movie->primary_color_text = $request->primary_color_text;
         $movie->save();
 
         return redirect()->route('movies')->with('success', 'Movie updated successfully.');

@@ -18,6 +18,9 @@
         @livewireStyles
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{{asset('js/lang/language.js')}}"></script>
+        <script src="{{asset('js/lang/en.js')}}"></script>
+        <script src="{{asset('js/lang/vi.js')}}"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.tailwindcss.css" />
         <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/2.3.0/css/searchPanes.dataTables.css" />
@@ -50,7 +53,7 @@
         @livewireScripts
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-        <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+        <script src="{{asset('js/dataTables.js')}}"></script>
         <script src="https://cdn.datatables.net/2.0.1/js/dataTables.tailwindcss.js"></script>
         <script src="https://cdn.datatables.net/searchpanes/2.3.0/js/dataTables.searchPanes.js"></script>
         <script src="https://cdn.datatables.net/searchpanes/2.3.0/js/searchPanes.dataTables.js"></script>

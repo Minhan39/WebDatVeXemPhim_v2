@@ -63,7 +63,7 @@
                     {
                         data: null,
                         render: function(data, type, row) {
-                            return '<img src="/storage/' + row.image + '" class="h-20 w-20 object-cover rounded-lg" alt="Service Image">';
+                            return '<img src="public/storage/' + row.image + '" class="h-20 w-20 object-cover rounded-lg" alt="Service Image">';
                         }
                     },
                     {data: 'country'},

@@ -16,9 +16,19 @@ class EnsureUserHasTeam
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->currentTeam->name !== 'Admin team') {
-            // Redirect to the home page if the user is not part of the "Admin" team
-            return redirect('/');
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            if ($user->hasVerifiedEmail()) {
+                // Check if the user is part of the "Admin" team
+                if ($user->currentTeam->name !== 'Admin team') {
+                    // Redirect to the home page if the user is not part of the "Admin" team
+                    return redirect('/');
+                }
+            } else {
+                // Redirect to email verification if email is not verified
+                return redirect()->route('verification.notice');
+            }
         }
 
         return $next($request);

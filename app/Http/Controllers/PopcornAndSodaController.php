@@ -16,10 +16,11 @@ class PopcornAndSodaController extends Controller
         $data = DB::table('popcorn_and_sodas')
             ->join('countries', 'popcorn_and_sodas.country_id', '=', 'countries.id')
             ->join('units', 'popcorn_and_sodas.unit_id', '=', 'units.id')
+            ->where('countries.symbol', '=', 'VN')
             ->select(
                 'popcorn_and_sodas.*', 
                 \DB::raw("CONCAT(countries.name, ' (', countries.symbol, ')') as country"),
-                'units.symbol as unit'
+                'units.symbol as unit_name'
                 )
             ->get();
         return response()->json($data);

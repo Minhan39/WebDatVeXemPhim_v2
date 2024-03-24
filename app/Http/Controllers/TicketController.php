@@ -4,9 +4,59 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TicketController extends Controller
 {
+    /**
+     * api ticket report.
+     */
+    public function report(){
+        $tickets = DB::table('tickets')
+            ->join('ticket_prices', 'tickets.ticket_price_id', '=', 'ticket_prices.id')
+            ->join('units', 'ticket_prices.unit_id', '=', 'units.id')
+            ->select(
+                DB::raw('DATE_FORMAT(tickets.created_at, "%d") as day'),
+                DB::raw('DATE_FORMAT(tickets.created_at, "%m") as month'),
+                DB::raw('SUM(ticket_prices.price * tickets.quantity) as price'),
+                'units.symbol as unit_name'
+            )
+            ->groupBy('day', 'month', 'unit_name')
+            ->get();
+        $tickets = $tickets->filter(function ($ticket) {
+            return $ticket->month == date('m');
+        });
+        return response()->json($tickets);
+    }
+    /**
+     * api ticket list.
+     */
+    public function list($user_id){
+        $tickets = DB::table('tickets')
+            ->join('showtimes', 'tickets.showtime_id', '=', 'showtimes.id')
+            ->join('movies', 'showtimes.movie_id', '=', 'movies.id')
+            ->join('cinemas', 'showtimes.cinema_id', '=', 'cinemas.id')
+            ->join('ticket_prices', 'tickets.ticket_price_id', '=', 'ticket_prices.id')
+            ->where('tickets.user_id', '=', $user_id)
+            ->where('showtimes.screening_date', '>=', date('Y-m-d'))
+            ->select(
+                'tickets.*',
+                'movies.name as movie_name',
+                'showtimes.screening_date',
+                'showtimes.screening_time',
+                'cinemas.name as cinema_name',
+                'ticket_prices.name as ticket_name',
+                'ticket_prices.price as ticket_price',
+                'movies.poster as movie_poster',
+                'movies.duration',
+                'cinemas.address as cinema_address',
+                'movies.primary_color_background',
+                'movies.primary_color_text',
+                )
+            ->get();
+        return response()->json($tickets);
+
+    }
     /**
      * Display a listing of the resource.
      */

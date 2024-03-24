@@ -1,8 +1,8 @@
-@extends('layouts.master')
+<!-- extends('layouts.master')
 
-@section('content')
+section('content') -->
     <!--== Start Slider Area Wrapper ==-->
-    <div class="slider-area-wrapper">
+    <!-- <div class="slider-area-wrapper">
       <div class="slider-content-active">
         <div
           class="slider-slide-item bg-img"
@@ -44,11 +44,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Slider Area Wrapper ==-->
 
     <!--== Start Banner Area Wrapper ==-->
-    <div class="banner-area-wrapper banner-mt">
+    <!-- <div class="banner-area-wrapper banner-mt">
       <div class="container container-wide">
         <div class="row">
           <div class="col-md-6 col-lg-4">
@@ -82,11 +82,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Banner Area Wrapper ==-->
 
     <!--== Start Call to Action Area ==-->
-    <div class="call-to-action-area sm-top">
+    <!-- <div class="call-to-action-area sm-top">
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-lg-4">
@@ -126,11 +126,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Call to Action Area ==-->
 
     <!--== Start Best Seller Products Area ==-->
-    <div class="best-seller-products-area sm-top">
+    <!-- <div class="best-seller-products-area sm-top">
       <div class="container container-wide">
         <div class="row">
           <div class="col-lg-5 m-auto text-center">
@@ -148,7 +148,6 @@
           <div class="col-12">
             <div class="product-wrapper">
               <div class="product-carousel">
-                <!-- Start Product Item -->
                 <div class="product-item">
                   <div class="product-item__thumb">
                     <a href="single-product.html">
@@ -198,9 +197,6 @@
                     <span class="sale-txt">25%</span>
                   </div>
                 </div>
-                <!-- End Product Item -->
-
-                <!-- Start Product Item -->
                 <div class="product-item">
                   <div class="product-item__thumb">
                     <a href="single-product.html">
@@ -246,9 +242,6 @@
                     </button>
                   </div>
                 </div>
-                <!-- End Product Item -->
-
-                <!-- Start Product Item -->
                 <div class="product-item">
                   <div class="product-item__thumb">
                     <a href="single-product.html">
@@ -298,9 +291,6 @@
                     <span class="sale-txt">35%</span>
                   </div>
                 </div>
-                <!-- End Product Item -->
-
-                <!-- Start Product Item -->
                 <div class="product-item">
                   <div class="product-item__thumb">
                     <a href="single-product.html">
@@ -346,9 +336,6 @@
                     </button>
                   </div>
                 </div>
-                <!-- End Product Item -->
-
-                <!-- Start Product Item -->
                 <div class="product-item">
                   <div class="product-item__thumb">
                     <a href="single-product.html">
@@ -398,17 +385,16 @@
                     <span class="sale-txt">21%</span>
                   </div>
                 </div>
-                <!-- End Product Item -->
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Best Seller Products Area ==-->
 
     <!--== Start Call to action Wrapper ==-->
-    <div class="call-to-action-area">
+    <!-- <div class="call-to-action-area">
       <div
         class="call-to-action-content-area bg-img"
         data-bg="{{asset('img/bg/bg-1.jpg')}}"
@@ -437,11 +423,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Call to action Wrapper ==-->
 
     <!--== Start Promotion Code Banner Area ==-->
-    <div class="promotion-code-area-wrapper sm-top">
+    <!-- <div class="promotion-code-area-wrapper sm-top">
       <div class="container container-wide">
         <div class="row">
           <div class="col-md-6">
@@ -457,11 +443,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Promotion Code Banner Area ==-->
 
     <!--== Start Products Area Wrapper ==-->
-    <div class="products-area-wrapper sm-top">
+    <!-- <div class="products-area-wrapper sm-top">
       <div class="container container-wide">
         <div class="row">
           <div class="col-lg-5 m-auto text-center">
@@ -478,7 +464,6 @@
         <div class="row">
           <div class="col-12">
             <div class="product-wrapper columns-5">
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -530,9 +515,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -580,9 +562,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -634,9 +613,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -684,9 +660,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -738,9 +711,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -792,9 +762,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -842,9 +809,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -896,9 +860,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -950,9 +911,6 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
-
-              <!-- Start Product Item -->
               <div class="col">
                 <div class="product-item">
                   <div class="product-item__thumb">
@@ -1000,16 +958,15 @@
                   </div>
                 </div>
               </div>
-              <!-- End Product Item -->
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Products Area Wrapper ==-->
 
     <!--== Start Flash Deals Area ==-->
-    <div class="flash-deals-area bg-img" data-bg="{{asset('img/bg/deal-bg.jpg')}}">
+    <!-- <div class="flash-deals-area bg-img" data-bg="{{asset('img/bg/deal-bg.jpg')}}">
       <div class="container">
         <div class="row">
           <div class="col-xl-11 m-auto">
@@ -1035,11 +992,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Flash Deals Area ==-->
 
     <!--== Start Newsletter Area ==-->
-    <div class="newsletter-area-wrapper">
+    <!-- <div class="newsletter-area-wrapper">
       <div class="container container-wide">
         <div
           class="newsletter-area-inner bg-img"
@@ -1068,11 +1025,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Newsletter Area ==-->
 
     <!--== Start Brand Logo Area Wrapper ==-->
-    <div class="brand-logo-area sm-top sm-bottom">
+    <!-- <div class="brand-logo-area sm-top sm-bottom">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -1122,17 +1079,16 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--== End Brand Logo Area Wrapper ==-->
 
     <!-- Scroll Top Button -->
-    <button class="btn-scroll-top"><i class="ion-chevron-up"></i></button>
+    <!-- <button class="btn-scroll-top"><i class="ion-chevron-up"></i></button> -->
 
     <!--== Start Responsive Menu Wrapper ==-->
-    <aside class="off-canvas-wrapper off-canvas-menu">
+    <!-- <aside class="off-canvas-wrapper off-canvas-menu">
       <div class="off-canvas-overlay"></div>
       <div class="off-canvas-inner">
-        <!-- Start Off Canvas Content -->
         <div class="off-canvas-content">
           <div class="off-canvas-header">
             <div class="logo">
@@ -1147,10 +1103,10 @@
             </div>
           </div>
 
-          <!-- Content Auto Generate Form Main Menu Here -->
           <div class="res-mobile-menu mobile-menu"></div>
         </div>
       </div>
-    </aside>
+    </aside> -->
     <!--== End Responsive Menu Wrapper ==-->
-@stop
+<!-- stop -->
+<h1>Welcome, back to app in your phone</h1>

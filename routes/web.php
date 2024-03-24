@@ -57,10 +57,10 @@ Route::get('/checkout', function () {
 //     })->name('dashboard');
 // });
 
-Route::middleware(['auth', 'ensureUserHasTeam'])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'ensureUserHasTeam'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->middleware('verified')->name('dashboard');
     Route::resource('countries', CountryController::class)->name('index', 'countries');
     Route::resource('cities', CityController::class);
     Route::resource('cinemas', CinemaController::class)->name('index', 'cinemas');
